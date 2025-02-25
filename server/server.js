@@ -1,7 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
+const bodyParser = require("body-parser");
+
 const app = express();
+
+// Middleware to parse JSON
+app.use(express.json()); 
+app.use(bodyParser.json());
 const PORT = process.env.PORT || 5000;
 app.get("/", (req, res) => {
   res.send("Message is sent");
